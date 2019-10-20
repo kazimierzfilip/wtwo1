@@ -1,25 +1,19 @@
 package main;
 
-import main.kraje.Usa;
+import main.kraje.Kraj;
+import main.podatki.Podatek;
+import main.podatki.PodatekLiniowyUsaWEuro;
+import main.podatki.PodatekProgresywnyUsaWEuro;
 
-import java.math.BigDecimal;
+public class UsaDoEuroAdapter implements Kraj {
 
-public class UsaDoEuroAdapter implements Adapter {
     @Override
-    public BigDecimal ObliczPodatekLiniowyWEuro(BigDecimal kwota) {
-        return new Usa()
-                .pobierzPodatekLiniowy()
-                .obliczWartoscPodatku(kwota)
-                .multiply(new BigDecimal(3))
-                .divide(new BigDecimal(3.8), BigDecimal.ROUND_HALF_DOWN);
+    public Podatek pobierzPodatekLiniowy() {
+        return new PodatekLiniowyUsaWEuro();
     }
 
     @Override
-    public BigDecimal ObliczPodatekProgresywnyWEuro(BigDecimal kwota) {
-        return new Usa()
-                .pobierzPodatekProgresywny()
-                .obliczWartoscPodatku(kwota)
-                .multiply(new BigDecimal(3))
-                .divide(new BigDecimal(3.8), BigDecimal.ROUND_HALF_DOWN);
+    public Podatek pobierzPodatekProgresywny() {
+        return new PodatekProgresywnyUsaWEuro();
     }
 }

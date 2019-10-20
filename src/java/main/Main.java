@@ -33,7 +33,14 @@ public class Main {
         System.out.println(magazyn.pobierzWartoscPoOpodatkowaniu(
                 new Niemcy().pobierzPodatekProgresywny()).setScale(2, BigDecimal.ROUND_HALF_DOWN));
 
-        System.out.println(new PolskaDoEuroAdapter().ObliczPodatekLiniowyWEuro(new BigDecimal(124_000)));
-        System.out.println(new PolskaDoEuroAdapter().ObliczPodatekProgresywnyWEuro(new BigDecimal(124_000)));
+        System.out.println(magazyn.pobierzWartoscPoOpodatkowaniu(
+                new PolskaDoEuroAdapter().pobierzPodatekLiniowy()).setScale(2, BigDecimal.ROUND_HALF_DOWN));
+        System.out.println(magazyn.pobierzWartoscPoOpodatkowaniu(
+                new PolskaDoEuroAdapter().pobierzPodatekProgresywny()).setScale(2, BigDecimal.ROUND_HALF_DOWN));
+        System.out.println(magazyn.pobierzWartoscPoOpodatkowaniu(
+                new Niemcy().pobierzPodatekLiniowy()).setScale(2, BigDecimal.ROUND_HALF_DOWN));
+        System.out.println(magazyn.pobierzWartoscPoOpodatkowaniu(
+                new Niemcy().pobierzPodatekProgresywny()).setScale(2, BigDecimal.ROUND_HALF_DOWN));
+
     }
 }
